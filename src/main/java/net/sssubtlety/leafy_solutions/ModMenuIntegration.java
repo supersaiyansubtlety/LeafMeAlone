@@ -16,9 +16,8 @@ public class ModMenuIntegration implements ModMenuApi {
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return parent -> {
             Optional<Supplier<Screen>> optionalScreen = getConfigScreen(parent);
-            return optionalScreen.orElse(()->parent).get();
-//            return optionalScreen.isPresent() ?
-//                    optionalScreen.get().get() : parent;
+            return optionalScreen.isPresent() ?
+                    optionalScreen.get().get() : parent;
         };
     }
 
